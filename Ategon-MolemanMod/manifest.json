@@ -1,0 +1,17 @@
+{
+	"name": "MolemanMod",
+	"namespace": "Ategon",
+	"version_number": "2.0.0",
+	"description": "Adds a new keeper to the game, the Moleman",
+	"website_url": "https://github.com/Ategon/",
+	"dependencies": [],
+	"extra": {
+		"godot": {
+			"incompatibilities": [],
+			"authors": ["Ategon"],
+			"compatible_mod_loader_version": ["5.0.1"],
+			"compatible_game_version": ["2.5.0.4p"],
+			"config_defaults": {}
+		}
+	}
+}

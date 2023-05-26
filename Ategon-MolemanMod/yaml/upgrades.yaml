@@ -1,0 +1,167 @@
+keepermole:
+  propertyChanges:
+    - keepermole.maxSpeed = 56
+    - keepermole.speedLossPerCarry = 5.7
+    - keepermole.jetpackStage = 0
+    - keepermole.acceleration = 5
+    - keepermole.deceleration = 4
+    - keepermole.slowdownRecovery = 4
+    - keepermole.maxTunnelers = 3
+    - keepermole.tunnelerCooldownTime = 0.5
+    - keepermole.tunnelerTravelSpeed = 80.0
+    - keepermole.tunnelerTravelDamage = 0.15
+    - keepermole.tunnelerTravelDamageFrequency = 0.05
+    - keepermole.tunnelerTravelSoundFrequency = 0.2
+    - keepermole.tunnelerMiningTravelSpeed = 0.1
+    - keepermole.tunnelerMiningTravelDamage = 0.8
+    - keepermole.tunnelerMiningTravelDamageFrequency = 0.2
+    - keepermole.tunnelerTargetDamage = 0.5
+    - keepermole.tunnelerTargetDamageFrequency = 0.2
+    - keepermole.tunnelMinLength = 2
+    - keepermole.tunnelMaxLength = 2
+    - keepermole.tunnelLengthSpeed = 2.0
+    - keepermole.tunnelMinFriction = 1.0
+    - keepermole.tunnelMaxFriction = 1.0
+    - keepermole.tunnelFrictionLossPerSec = 0.1/h
+    - keepermole.tunnelKeeperTravelSpeed = 150.0
+    - keepermole.tunnelKeeperTravelDamage = 1.0
+    - keepermole.tunnelKeeperTravelDamageReduction = 0.0/h
+    - keepermole.tunnelKeeperTravelFriction = 1.0/h
+    - keepermole.tunnelKeeperTravelCenteringSpeed = 2.0
+    - keepermole.tunnelObjectTravelSpeed = 100.0
+    - keepermole.tunnelObjectTravelDamage = 0.0
+    - keepermole.tunnelObjectTravelDamageReduction = 0.0/h
+    - keepermole.tunnelObjectTravelCenteringSpeed = 2.0
+    - keepermole.tunnelMining = false/h
+    - keepermole.tunnelMiningDropHealthLossPercent = 0.8
+    - keepermole.tunnelDetonation = false/h
+    - keepermole.tunnelDetonationDelay = 0.15
+    - keepermole.tunnelVacuum = false/h
+    - keepermole.tunnelVacuumStrength = 4.0
+    - keepermole.tunnelVacuumPatienceLossPerSec = 0.25/h
+    - keepermole.queuedTunnelers = false/h
+    - keepermole.queuedTunnelersSplit = false/h
+    - keepermole.queuedTunnelersRecursion = false/h
+keepermoleMoveSpeed1:
+  cost: iron=4
+  propertyChanges:
+    - keepermole.maxSpeed += 16
+    - keepermole.jetpackStage += 1
+  predecessors: [keepermole]
+keepermoleTunnelLength1:
+  cost: iron=5
+  propertyChanges:
+    - keepermole.tunnelMaxLength = 3
+  predecessors: [keepermole]
+keepermoleTunnelerStrength1:
+  cost: iron=8
+  propertyChanges:
+    - keepermole.tunnelerTargetDamage += 0.25
+    - keepermole.tunnelerTravelDamage += 0.15
+    - keepermole.tunnelKeeperTravelDamage += 1.5
+  predecessors: [keepermoleTunnelLength1]
+keepermoleTunnelerStrength2:
+  cost: iron=18
+  propertyChanges:
+    - keepermole.tunnelerTargetDamage += 0.40
+    - keepermole.tunnelerTravelDamage += 0.30
+    - keepermole.tunnelKeeperTravelDamage += 2.25
+  predecessors: [keepermoleTunnelerStrength1]
+keepermoleTunnelerStrength3:
+  cost: iron=24
+  repeatable:
+    - cost.iron += 6
+    - property.keepermole.tunnelerTargetDamage *= 2.5
+    - property.keepermole.tunnelerTravelDamage *= 2.25
+    - property.keepermole.tunnelKeeperTravelDamage *= 2.0
+  propertyChanges:
+    - keepermole.tunnelerTargetDamage += 1.10
+    - keepermole.tunnelerTravelDamage += 0.80
+    - keepermole.tunnelKeeperTravelDamage += 7.5
+  predecessors: [keepermoleTunnelerStrength2]
+keepermoleTunnelLength2:
+  cost: iron=10
+  propertyChanges:
+    - keepermole.tunnelMaxLength = 4
+  predecessors: [keepermoleTunnelLength1]
+keepermoleTunnelLength3:
+  cost: iron=15
+  propertyChanges:
+    - keepermole.tunnelMaxLength = 5
+  predecessors: [keepermoleTunnelLength2]
+keepermoleTunnelLength4:
+  cost: iron=20
+  propertyChanges:
+    - keepermole.tunnelMaxLength = 6
+  predecessors: [keepermoleTunnelLength3]
+keepermoleCarryStrength1:
+  cost: iron=4
+  propertyChanges:
+    - keepermole.speedLossPerCarry = 2.4
+  predecessors: [keepermole]
+keepermoleCarryStrength2:
+  cost: iron=8
+  propertyChanges:
+    - keepermole.speedLossPerCarry = 1.05
+  predecessors: [keepermoleCarryStrength1]
+keepermoleCarryStrength3:
+  cost: iron=12
+  propertyChanges:
+    - keepermole.speedLossPerCarry = 0.42
+  predecessors: [keepermoleCarryStrength2]
+keepermoleCarryStrength4:
+  cost: iron=16
+  propertyChanges:
+    - keepermole.speedLossPerCarry = 0.17
+  predecessors: [keepermoleCarryStrength3]
+keepermoleQueuedTunnelers:
+  cost: iron=5, water=1
+  propertyChanges:
+    - keepermole.queuedTunnelers = true
+  predecessors: [keepermole]
+  locks: [keepermoleMineralExtraction]
+keepermoleQueuedSplitTunnelers:
+  cost: iron=10, water=2
+  propertyChanges:
+    - keepermole.queuedTunnelersSplit = true
+  predecessors: [keepermoleQueuedTunnelers]
+keepermoleQueuedSplitTunnelersSquared:
+  cost: iron=20, water=4
+  propertyChanges:
+    - keepermole.queuedTunnelersRecursion = true
+  predecessors: [keepermoleQueuedSplitTunnelers]
+keepermoleMineralExtraction:
+  cost: iron=5, sand=1
+  propertyChanges:
+    - keepermole.tunnelMining = true
+  predecessors: [keepermole]
+  locks: [keepermoleQueuedTunnelers]
+keepermoleTunnelReducedFriction:
+  cost: iron=10
+  propertyChanges:
+    - keepermole.tunnelMinFriction = 0.1
+    - keepermole.tunnelKeeperTravelFriction = 0.4
+    - keepermole.tunnelObjectTravelDamageReduction = 0.95
+  predecessors: [keepermoleMineralExtraction]
+keepermoleTunnelVacuum:
+  cost: iron=15, sand=2
+  propertyChanges:
+    - keepermole.tunnelVacuum = true
+  predecessors: [keepermoleTunnelReducedFriction]
+keepermoleTunnelSpeed1:
+  cost: iron=5
+  propertyChanges:
+    - keepermole.tunnelKeeperTravelSpeed += 50.0
+    - keepermole.tunnelKeeperTravelCenteringSpeed = 4.0
+  predecessors: [keepermoleMineralExtraction]
+keepermoleTunnelSpeed2:
+  cost: iron=10
+  propertyChanges:
+    - keepermole.tunnelKeeperTravelSpeed += 80.0
+    - keepermole.tunnelKeeperTravelCenteringSpeed = 6.0
+  predecessors: [keepermoleTunnelSpeed1]
+keepermoleTunnelDetonation:
+  cost: sand=5, water=10
+  propertyChanges:
+    - keepermole.tunnelDetonation = true
+  predecessors: [keepermole]

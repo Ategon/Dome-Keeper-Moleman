@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/MOLEMAN Drill And Sweep.ogg-c482569190322d83c7743d1c02d01f91.oggstr"
+
+[deps]
+
+source_file="res://mods-unpacked/Ategon-MolemanMod/music/MOLEMAN Drill And Sweep.ogg"
+dest_files=[ "res://.import/MOLEMAN Drill And Sweep.ogg-c482569190322d83c7743d1c02d01f91.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

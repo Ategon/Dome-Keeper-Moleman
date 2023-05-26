@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/MOLEMAN Flooded Ruins.ogg-735242b92f78a728297a0b9765275cac.oggstr"
+
+[deps]
+
+source_file="res://mods-unpacked/Ategon-MolemanMod/music/MOLEMAN Flooded Ruins.ogg"
+dest_files=[ "res://.import/MOLEMAN Flooded Ruins.ogg-735242b92f78a728297a0b9765275cac.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

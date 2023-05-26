@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/MOLEMAN The Moleman.ogg-2186d2afac31ea5e03936d9fc1c3895b.oggstr"
+
+[deps]
+
+source_file="res://mods-unpacked/Ategon-MolemanMod/music/MOLEMAN The Moleman.ogg"
+dest_files=[ "res://.import/MOLEMAN The Moleman.ogg-2186d2afac31ea5e03936d9fc1c3895b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
