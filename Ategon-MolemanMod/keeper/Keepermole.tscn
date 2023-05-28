@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=2]
+[gd_scene load_steps=100 format=2]
 
 [ext_resource path="res://mods-unpacked/Ategon-MolemanMod/keeper/Keepermole.gd" type="Script" id=1]
 [ext_resource path="res://mods-unpacked/Ategon-MolemanMod/art/moleman_sheet.png" type="Texture" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://content/keeper/spark_gradient.tres" type="Texture" id=5]
 [ext_resource path="res://content/sounds/keeper1/jetpackstart2.wav" type="AudioStream" id=6]
 [ext_resource path="res://content/sounds/keeper1/jetpackstop.wav" type="AudioStream" id=7]
-[ext_resource path="res://content/keeper/keeper1/player1/drill_hit_default.png" type="Texture" id=8]
 [ext_resource path="res://content/sounds/keeper1/Drill/Dig_v3.wav" type="AudioStream" id=9]
 [ext_resource path="res://content/sounds/keeper1/DragResourcesLoop.wav" type="AudioStream" id=10]
 [ext_resource path="res://content/sounds/keeper1/ResourceAttach.wav" type="AudioStream" id=11]
@@ -23,8 +22,6 @@
 [ext_resource path="res://content/sounds/keeper1/Drill/Dig_Density_04.wav" type="AudioStream" id=21]
 [ext_resource path="res://content/sounds/keeper1/Drill/Buff.wav" type="AudioStream" id=22]
 [ext_resource path="res://content/sounds/keeper1/MovementLoop_01.wav" type="AudioStream" id=23]
-[ext_resource path="res://content/shared/particle_1px_offset.png" type="Texture" id=26]
-[ext_resource path="res://content/keeper/keeper1/player1/drill_buffed.png" type="Texture" id=28]
 [ext_resource path="res://content/sounds/keeper1/Drill/ChamberTile.wav" type="AudioStream" id=29]
 [ext_resource path="res://systems/audio/Sound.tscn" type="PackedScene" id=30]
 [ext_resource path="res://content/sounds/Locations/Teleport/TeleportInit.wav" type="AudioStream" id=31]
@@ -42,7 +39,6 @@
 [ext_resource path="res://content/sounds/drops/Irontest_02.wav" type="AudioStream" id=43]
 [ext_resource path="res://content/sounds/drops/Relictest_01.wav" type="AudioStream" id=44]
 [ext_resource path="res://content/sounds/drops/Relictest_02.wav" type="AudioStream" id=45]
-[ext_resource path="res://content/keeper/keeper1/player1/drill.png" type="Texture" id=46]
 [ext_resource path="res://content/sounds/drops/Relictest_03.wav" type="AudioStream" id=47]
 [ext_resource path="res://content/shared/LightLineOfSight.gd" type="Script" id=48]
 
@@ -232,6 +228,38 @@ region = Rect2( 16, 96, 16, 32 )
 atlas = ExtResource( 2 )
 region = Rect2( 0, 96, 16, 32 )
 
+[sub_resource type="AtlasTexture" id=245]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 128, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=246]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 128, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=247]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 128, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=248]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 128, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=249]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 160, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=250]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 160, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=251]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 160, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=252]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 160, 16, 32 )
+
 [sub_resource type="AtlasTexture" id=221]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 32, 16, 32 )
@@ -270,134 +298,20 @@ animations = [ {
 "name": "exit-dash",
 "speed": 45.0
 }, {
+"frames": [ SubResource( 245 ), SubResource( 246 ), SubResource( 247 ), SubResource( 248 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 249 ), SubResource( 250 ), SubResource( 251 ), SubResource( 252 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 221 ), SubResource( 222 ), SubResource( 223 ), SubResource( 224 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
-} ]
-
-[sub_resource type="AtlasTexture" id=161]
-atlas = ExtResource( 8 )
-region = Rect2( 0, 0, 13, 13 )
-
-[sub_resource type="AtlasTexture" id=162]
-atlas = ExtResource( 8 )
-region = Rect2( 13, 0, 13, 13 )
-
-[sub_resource type="AtlasTexture" id=163]
-atlas = ExtResource( 8 )
-region = Rect2( 26, 0, 13, 13 )
-
-[sub_resource type="AtlasTexture" id=164]
-atlas = ExtResource( 8 )
-region = Rect2( 39, 0, 13, 13 )
-
-[sub_resource type="SpriteFrames" id=165]
-animations = [ {
-"frames": [ SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), null ],
-"loop": false,
-"name": "hit",
-"speed": 20.0
-} ]
-
-[sub_resource type="Gradient" id=166]
-offsets = PoolRealArray( 0, 0.606119, 0.848948, 1 )
-colors = PoolColorArray( 0.188235, 0.92549, 0.156863, 1, 0.12549, 0.568627, 0.156863, 1, 0.0313726, 0.145098, 0.156863, 1, 0.0313726, 0.145098, 0.156863, 0 )
-
-[sub_resource type="GradientTexture" id=167]
-gradient = SubResource( 166 )
-width = 128
-
-[sub_resource type="ParticlesMaterial" id=168]
-lifetime_randomness = 0.8
-flag_disable_z = true
-spread = 40.0
-gravity = Vector3( 0, 20, 0 )
-initial_velocity = 60.0
-initial_velocity_random = 0.9
-angular_velocity = 800.0
-angular_velocity_random = 1.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-angle = 360.0
-angle_random = 1.0
-color_ramp = SubResource( 167 )
-
-[sub_resource type="AtlasTexture" id=111]
-atlas = ExtResource( 46 )
-region = Rect2( 0, 0, 10, 20 )
-
-[sub_resource type="AtlasTexture" id=112]
-atlas = ExtResource( 46 )
-region = Rect2( 10, 0, 10, 20 )
-
-[sub_resource type="AtlasTexture" id=113]
-atlas = ExtResource( 46 )
-region = Rect2( 20, 0, 10, 20 )
-
-[sub_resource type="AtlasTexture" id=114]
-atlas = ExtResource( 46 )
-region = Rect2( 30, 0, 10, 20 )
-
-[sub_resource type="AtlasTexture" id=115]
-atlas = ExtResource( 46 )
-region = Rect2( 40, 0, 10, 20 )
-
-[sub_resource type="AtlasTexture" id=116]
-atlas = ExtResource( 46 )
-region = Rect2( 50, 0, 10, 20 )
-
-[sub_resource type="AtlasTexture" id=117]
-atlas = ExtResource( 46 )
-region = Rect2( 60, 0, 10, 20 )
-
-[sub_resource type="AtlasTexture" id=118]
-atlas = ExtResource( 46 )
-region = Rect2( 70, 0, 10, 20 )
-
-[sub_resource type="AtlasTexture" id=203]
-atlas = ExtResource( 28 )
-region = Rect2( 0, 0, 10, 20 )
-
-[sub_resource type="AtlasTexture" id=204]
-atlas = ExtResource( 28 )
-region = Rect2( 10, 0, 10, 20 )
-
-[sub_resource type="AtlasTexture" id=205]
-atlas = ExtResource( 28 )
-region = Rect2( 20, 0, 10, 20 )
-
-[sub_resource type="AtlasTexture" id=206]
-atlas = ExtResource( 28 )
-region = Rect2( 30, 0, 10, 20 )
-
-[sub_resource type="AtlasTexture" id=207]
-atlas = ExtResource( 28 )
-region = Rect2( 40, 0, 10, 20 )
-
-[sub_resource type="AtlasTexture" id=208]
-atlas = ExtResource( 28 )
-region = Rect2( 50, 0, 10, 20 )
-
-[sub_resource type="AtlasTexture" id=209]
-atlas = ExtResource( 28 )
-region = Rect2( 60, 0, 10, 20 )
-
-[sub_resource type="AtlasTexture" id=210]
-atlas = ExtResource( 28 )
-region = Rect2( 70, 0, 10, 20 )
-
-[sub_resource type="SpriteFrames" id=18]
-animations = [ {
-"frames": [ SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ) ],
-"loop": false,
-"name": "drill",
-"speed": 20.0
-}, {
-"frames": [ SubResource( 203 ), SubResource( 204 ), SubResource( 205 ), SubResource( 206 ), SubResource( 207 ), SubResource( 208 ), SubResource( 209 ), SubResource( 210 ) ],
-"loop": false,
-"name": "drill_buffed",
-"speed": 20.0
 } ]
 
 [sub_resource type="CircleShape2D" id=170]
@@ -508,31 +422,7 @@ light_flicker_strength = 1.0
 light_mask = 0
 position = Vector2( 0.5, 0 )
 frames = SubResource( 212 )
-animation = "exit-dash"
-
-[node name="DrillHit" type="AnimatedSprite" parent="."]
-position = Vector2( -13, -1 )
-z_index = 4
-frames = SubResource( 165 )
-animation = "hit"
-centered = false
-offset = Vector2( -4, -6 )
-
-[node name="DrillHitParticles" type="Particles2D" parent="DrillHit"]
-emitting = false
-amount = 15
-lifetime = 0.8
-one_shot = true
-speed_scale = 2.0
-explosiveness = 0.95
-local_coords = false
-process_material = SubResource( 168 )
-texture = ExtResource( 26 )
-
-[node name="DrillSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 18 )
-animation = "drill_buffed"
-offset = Vector2( -8, -1 )
+animation = "right"
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 visible = false

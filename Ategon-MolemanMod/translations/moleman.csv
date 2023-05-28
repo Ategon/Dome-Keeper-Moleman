@@ -1,3 +1,65 @@
 keys,en
 upgrades.keepermole.title,Moleman
 upgrades.keepermole.desc,A tunneling engineer who creates passageways through stone.
+upgrades.keepermolemovespeed1.title,Move speed
+upgrades.keepermolemovespeed1.desc,Increases your speed when moving outside of tunnels.
+upgrades.keepermoletunnellength1.title,Tunnel length 1
+upgrades.keepermoletunnellength1.desc,"Increases the max length of your tunnels.
+
+Hold the dig button to increase tunnel length before releasing the tunneler."
+upgrades.keepermoletunnellength2.title,Tunnel length 2
+upgrades.keepermoletunnellength2.desc,Increases the max length of your tunnels.
+upgrades.keepermoletunnellength3.title,Tunnel length 3
+upgrades.keepermoletunnellength3.desc,Increases the max length of your tunnels.
+upgrades.keepermoletunnellength4.title,Tunnel length 4
+upgrades.keepermoletunnellength4.desc,Increases the max length of your tunnels.
+upgrades.keepermoletunnelerstrength1.title,Tunneller strength 1
+upgrades.keepermoletunnelerstrength1.desc,Makes the tunneler dig faster and increases damage caused by you when travelling in tunnels.
+upgrades.keepermoletunnelerstrength2.title,Tunneller strength 2
+upgrades.keepermoletunnelerstrength2.desc,Makes the tunneler dig faster and increases damage caused by you when travelling in tunnels.
+upgrades.keepermoletunnelerstrength3.title,Tunneller strength 3
+upgrades.keepermoletunnelerstrength3.desc,Makes the tunneler dig faster and increases damage caused by you when travelling in tunnels.
+upgrades.keepermolecarrystrength1.title,Carry strength 1
+upgrades.keepermolecarrystrength1.desc,Increases your carrying strength.
+upgrades.keepermolecarrystrength2.title,Carry strength 2
+upgrades.keepermolecarrystrength2.desc,Increases your carrying strength.
+upgrades.keepermolecarrystrength3.title,Carry strength 3
+upgrades.keepermolecarrystrength3.desc,Increases your carrying strength.
+upgrades.keepermolecarrystrength4.title,Carry strength 4
+upgrades.keepermolecarrystrength4.desc,Increases your carrying strength.
+upgrades.keepermolequeuedtunnelers.title,Queued tunnelers
+upgrades.keepermolequeuedtunnelers.desc,While a tunneler is digging you can fire another tunneler to continue from where it finishes.
+upgrades.keepermolequeuedsplittunnelers.title,Recursive tunnelers
+upgrades.keepermolequeuedsplittunnelers.desc,The queued tunnelers will split and shoot off to the sides of the first tunnel.
+upgrades.keepermolequeuedsplittunnelerssquared.title,Second queued tunnelers
+upgrades.keepermolequeuedsplittunnelerssquared.desc,"Queue even more tunnelers after the initial split.
+
+They will be half the length of the first split."
+upgrades.keepermolemineralextraction.title,Mineral extraction
+upgrades.keepermolemineralextraction.desc,While digging a tunnel through resources they are spit out of the tunnel.
+upgrades.keepermoletunnelvacuum.title,Tunnel vacuum
+upgrades.keepermoletunnelvacuum.desc,"Tunnels will hoover up resources close to them.
+
+Press and hold the drop button before touching a tunnel to reverse vacuum direction."
+upgrades.keepermoletunnelreducedfriction.title,Reduced friction
+upgrades.keepermoletunnelreducedfriction.desc,"You do less damage to tunnels you use infrequently.
+
+Quickly going back and forth through the same tunnel will build up friction, which allows you to negate the damage reduction and destroy tiles as normal."
+upgrades.keepermoletunnelspeed1.title,Tunnel move speed 1
+upgrades.keepermoletunnelspeed1.desc,You move even faster when travelling in tunnels.
+upgrades.keepermoletunnelspeed2.title,Tunnel move speed 2
+upgrades.keepermoletunnelspeed2.desc,You move much faster when travelling in tunnels.
+upgrades.keepermoletunneldetonation.title,Tunnel detonation
+upgrades.keepermoletunneldetonation.desc,"Detonate finished tunnels using the same button you drop resources with.
+
+Will probably be removed since it's super OP..."
+properties.keepermole.maxspeed,Top Speed {}
+properties.keepermole.speedlosspercarry,Carry Slowdown {}
+properties.keepermole.maxtunnelers,Max simultaneous tunnelers {}
+properties.keepermole.tunnelertargetdamage,Tunneler target damage {}
+properties.keepermole.tunnelertraveldamage,Tunneler travel damage {}
+properties.keepermole.tunnelminlength,Min tunnel length {}
+properties.keepermole.tunnelmaxlength,Max tunnel length {}
+properties.keepermole.tunnelkeepertravelspeed,Tunnel move speed {}
+properties.keepermole.tunnelkeepertraveldamage,Tunnel move damage {}
+properties.keepermole.tunnelkeepertraveldamagereduction,Reduce tunnel move damage by {.percent}

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/MOLEMAN Forgotten Walkway.ogg-47e9959e19f94bd847cd346d3cf7b838.oggstr"
+
+[deps]
+
+source_file="res://mods-unpacked/Ategon-MolemanMod/music/MOLEMAN Forgotten Walkway.ogg"
+dest_files=[ "res://.import/MOLEMAN Forgotten Walkway.ogg-47e9959e19f94bd847cd346d3cf7b838.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

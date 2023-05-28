@@ -107,12 +107,12 @@ func generateMiningDrops(tile, tileCoord):
 		newDelta += 1
 	Level.map.dropDeltas[tile.type] = newDelta
 
-	if tile.type == CONST.SAND and drops < 3 and GameWorld.gameMode == CONST.MODE_RELICHUNT and GameWorld.difficulty <= 0:
+	if tile.type == CONST.SAND and drops < 3 and Level.loadout.modeId == CONST.MODE_RELICHUNT and Level.loadout.difficulty <= 0:
 
 		var sandWithFloating = Data.of("inventory.sand") + Data.of("inventory.floatingsand")
 		if Data.of("dome.health") < 350 - 60 * sandWithFloating:
 			drops += 1
-	if drops < 3 and GameWorld.difficulty * 0.1 < - randf():
+	if drops < 3 and Level.loadout.difficulty * 0.1 < - randf():
 		drops += 1
 
 	for i in range(0, drops):

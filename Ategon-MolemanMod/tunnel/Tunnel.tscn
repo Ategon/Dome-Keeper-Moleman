@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://mods-unpacked/Ategon-MolemanMod/tunnel/tunnel.gd" type="Script" id=1]
 [ext_resource path="res://mods-unpacked/Ategon-MolemanMod/tunnel/tunnel_entrance.png" type="Texture" id=2]
 [ext_resource path="res://systems/audio/Sound.tscn" type="PackedScene" id=3]
 [ext_resource path="res://content/sounds/Locations/Drillbot/DigDrillbot.wav" type="AudioStream" id=4]
+[ext_resource path="res://mods-unpacked/Ategon-MolemanMod/tunnel/tunnel_arrow.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11, 11 )
@@ -62,6 +63,11 @@ z_index = -1
 amount = 4
 process_material = SubResource( 3 )
 
+[node name="LeftArrow" type="Sprite" parent="LeftEntrance"]
+visible = false
+position = Vector2( 0, 5.438 )
+texture = ExtResource( 5 )
+
 [node name="RightEntrance" type="Sprite" parent="."]
 position = Vector2( 11, 0 )
 rotation = 1.5708
@@ -80,6 +86,12 @@ rotation = 3.14159
 z_index = -1
 amount = 4
 process_material = SubResource( 6 )
+
+[node name="RightArrow" type="Sprite" parent="RightEntrance"]
+visible = false
+position = Vector2( 0, 5.438 )
+rotation = 3.14159
+texture = ExtResource( 5 )
 
 [node name="TunnelDrillSound" parent="." instance=ExtResource( 3 )]
 stream = ExtResource( 4 )

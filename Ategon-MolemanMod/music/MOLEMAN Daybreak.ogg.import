@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/MOLEMAN Daybreak.ogg-c9345d6d2d9661a21c4fc80c6993b0f2.oggstr"
+
+[deps]
+
+source_file="res://mods-unpacked/Ategon-MolemanMod/music/MOLEMAN Daybreak.ogg"
+dest_files=[ "res://.import/MOLEMAN Daybreak.ogg-c9345d6d2d9661a21c4fc80c6993b0f2.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -21,7 +21,7 @@ region = Rect2( 72, 0, 24, 24 )
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 11 ), SubResource( 10 ), SubResource( 9 ), SubResource( 8 ) ],
 "loop": true,
 "name": "ping",
 "speed": 9.0
@@ -34,5 +34,5 @@ script = ExtResource( 1 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 7 )
 animation = "ping"
-frame = 3
+frame = 7
 playing = true

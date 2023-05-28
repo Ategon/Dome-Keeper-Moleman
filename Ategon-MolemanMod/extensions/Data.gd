@@ -39,7 +39,7 @@ func _ready():
 	if err == OK:
 		var currentKey
 		var currentData
-		var propertyChanges
+		var propertyChanges = null
 		while not f.eof_reached():
 			var line:String = f.get_line()
 			if line.strip_edges().length() > 1:
@@ -99,9 +99,9 @@ func _ready():
 		while not f.eof_reached():
 			var line:String = f.get_line()
 			if line.strip_edges().length() > 1:
-				
+
 				if line.begins_with(" "):
-					
+
 					if propertyChanges != null:
 						line = line.strip_edges()
 						if line.begins_with("-"):
@@ -110,9 +110,9 @@ func _ready():
 							propertyChanges.append(change)
 							continue
 						else :
-							
+
 							propertyChanges = null
-					
+
 					var split = line.split(":")
 					var key = split[0].strip_edges().to_lower()
 					var value = split[1].strip_edges()
@@ -130,7 +130,7 @@ func _ready():
 					else :
 						currentData[key] = str2var(value)
 				else :
-					
+
 					var key = line.substr(0, line.find(":")).to_lower()
 					if currentKey:
 						storeUpgradeData(currentKey, currentData)
@@ -145,7 +145,6 @@ func _ready():
 		Logger.error("failed to open upgrades2.yaml. Error: " + str(err))
 		get_tree().quit()
 	f.close()
-	
 	
 	for gk in gadgets:
 		gadgets[gk]["id"] = gk
@@ -205,4 +204,6 @@ func _ready():
 				var split2 = costString.split("=")
 				costs[str(split2[0]).strip_edges()] = int(split2[1])
 			upgrades[uk]["cost"] = costs
+	
+	print(upgrades)
 	pass

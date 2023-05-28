@@ -2,7 +2,6 @@ extends Keeper
 
 signal tileHit
 
-onready  var DrillSprite = $DrillSprite
 onready  var DrillHitTestRay = $DrillHitTestRay
 
 export (bool) var simulatedCarrySlowdown: = false
@@ -45,7 +44,6 @@ func _ready():
 	$ThrusterRight.emitting = true
 	$ThrusterLeft / Booster.playing = true
 	$ThrusterRight / Booster.playing = true
-	$DrillHit.frame = 4
 
 	Style.init(self)
 
@@ -173,8 +171,6 @@ func _physics_process(delta):
 		var combinedMove = moveDirectionInput
 		if actualMove.length() > 0.15:
 			combinedMove += actualMove
-		$DrillSprite.hide()
-		$DrillSprite.stop()
 		if inTunnel:
 			$Sprite.play("dash" + animationSuffix)
 			if $ThrusterLeft.emitting:
@@ -708,35 +704,6 @@ func touchTunnelTile()->void:
 	lastTile = tile
 	lastTileDir = normalizeIntVector(lastTile.global_position - global_position)
 
-
-onready  var drill_hit = $DrillHit
-func emit_sparks(hit_position:Vector2, tile:Node, hits_needed_to_destroy:float):
-	var tile_type = tile.type
-	drill_hit.position = to_local(hit_position) * 1.5
-	drill_hit.rotation = DrillHitTestRay.rotation + PI
-	drill_hit.frame = 0
-	drill_hit.play("hit")
-	var particle_amount = int(round(range_lerp(clamp(hits_needed_to_destroy, 1.0, 8.0), 1, 8, 60, 10)))
-	$DrillHit / DrillHitParticles.amount = particle_amount
-	$DrillHit / DrillHitParticles.restart()
-
-	var spark_amount = int(round(range_lerp(clamp(hits_needed_to_destroy, 1.0, 8.0), 1, 8, 20, 3)))
-	for _i in range(spark_amount + randi() % 3):
-		var s = Data.KEEPER_SPARK.instance()
-		s.global_position = hit_position
-		s.apply_central_impulse(Vector2.RIGHT.rotated(drill_hit.rotation + rand_range( - 0.4, 0.4)) * rand_range(30, 150))
-		get_parent().call_deferred("add_child", s)
-	
-	var dirt_color = Level.map.getBiomeColorByCoord(tile.coord)
-	
-	var dirt_amount = int(round(range_lerp(clamp(hits_needed_to_destroy, 1.0, 8.0), 1, 8, 5, 0)))
-	for _i in range(dirt_amount + randi() % 2):
-		var t = Data.TILE_DIRT_PARTICLE.instance()
-		t.modulate = dirt_color
-		t.type = tile_type
-		t.global_position = hit_position
-		t.apply_central_impulse(Vector2.RIGHT.rotated(drill_hit.rotation + rand_range( - 0.7, 0.7)) * rand_range(60, 130))
-		get_parent().call_deferred("add_child", t)
 
 func setJetpackStage(stage:int):
 	$Trail.amount = 20 + stage * 8

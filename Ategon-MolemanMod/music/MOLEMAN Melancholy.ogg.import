@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/MOLEMAN Melancholy.ogg-c84ef02db47ba9ace4854d037e7d9e41.oggstr"
+
+[deps]
+
+source_file="res://mods-unpacked/Ategon-MolemanMod/music/MOLEMAN Melancholy.ogg"
+dest_files=[ "res://.import/MOLEMAN Melancholy.ogg-c84ef02db47ba9ace4854d037e7d9e41.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

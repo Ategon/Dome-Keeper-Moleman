@@ -68,6 +68,7 @@ func tileDestroyed(tileCoord):
 				if data["keeper"]:
 					traveller.setTunnelMode(false)
 				else:
+					traveller.set_tunnel_mode(false)
 					if "mode" in traveller:
 						traveller.mode = data["physicsMode"]
 					traveller.popPhysicsOverride()
@@ -163,6 +164,8 @@ func enterTunnel(traveller, dir = null):
 	if traveller is Keeper:
 		traveller.setTunnelMode(true)
 	else:
+		if traveller.is_in_group("drops"):
+			traveller.set_tunnel_mode(true)
 		# We use a physics override and change the physics mode
 		# to prevent issues when the game is paused
 		var po = CarryablePhysicsOverride.new()
@@ -197,6 +200,8 @@ func continueTunneling(traveller, fromCoord, prevData):
 
 	if traveller is Keeper:
 		traveller.setTunnelMode(true)
+	elif traveller.is_in_group("drops"):
+		traveller.set_tunnel_mode(true)
 	
 	travellers.append(travellerData)
 
@@ -215,6 +220,19 @@ func reverseVacuumDirection(propagate = true):
 		for data in travellers:
 			if not data["keeper"]:
 				data["reverse"] = !data["reverse"]
+	
+	if vacuumMode:
+		$LeftEntrance/LeftArrow.visible = true
+		$RightEntrance/RightArrow.visible = true
+		if vacuumReverse:
+			$LeftEntrance/LeftArrow.flip_v = true
+			$RightEntrance/RightArrow.flip_v = true
+		else:
+			$LeftEntrance/LeftArrow.flip_v = false
+			$RightEntrance/RightArrow.flip_v = false
+	else:
+		$LeftEntrance/LeftArrow.visible = false
+		$RightEntrance/RightArrow.visible = false
 
 	if not propagate:
 		return
@@ -324,7 +342,6 @@ func _physics_process(delta):
 			detonationCountdown -= delta
 
 	if open and vacuumMode and Data.ofOr("keepermole.tunnelVacuum", false):
-
 		var entrancePosition = $LeftEntrance/LeftCarryArea.global_position
 		var carryables = vacuumCarryablesLeft
 
@@ -420,6 +437,8 @@ func _physics_process(delta):
 				if data["keeper"]:
 					traveller.setTunnelMode(false)
 				else:
+					if traveller.is_in_group("drops"):
+						traveller.set_tunnel_mode(false)
 					if "mode" in traveller:
 						traveller.mode = data["physicsMode"]
 
