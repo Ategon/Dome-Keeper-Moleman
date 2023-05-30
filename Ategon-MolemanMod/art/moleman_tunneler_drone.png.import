@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tunnel_arrow.png-019cb2655407351a0772c2ecae650b0f.stex"
+path="res://.import/moleman_tunneler_drone.png-77337b2e5cc754df55a7f6dcc9f0cd50.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mods-unpacked/Ategon-MolemanMod/tunnel/tunnel_arrow.png"
-dest_files=[ "res://.import/tunnel_arrow.png-019cb2655407351a0772c2ecae650b0f.stex" ]
+source_file="res://mods-unpacked/Ategon-MolemanMod/art/moleman_tunneler_drone.png"
+dest_files=[ "res://.import/moleman_tunneler_drone.png-77337b2e5cc754df55a7f6dcc9f0cd50.stex" ]
 
 [params]
 

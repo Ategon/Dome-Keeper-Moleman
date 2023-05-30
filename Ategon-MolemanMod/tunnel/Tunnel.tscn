@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://mods-unpacked/Ategon-MolemanMod/tunnel/tunnel.gd" type="Script" id=1]
-[ext_resource path="res://mods-unpacked/Ategon-MolemanMod/tunnel/tunnel_entrance.png" type="Texture" id=2]
+[ext_resource path="res://mods-unpacked/Ategon-MolemanMod/art/moleman_tunnel_entrance.png" type="Texture" id=2]
 [ext_resource path="res://systems/audio/Sound.tscn" type="PackedScene" id=3]
 [ext_resource path="res://content/sounds/Locations/Drillbot/DigDrillbot.wav" type="AudioStream" id=4]
-[ext_resource path="res://mods-unpacked/Ategon-MolemanMod/tunnel/tunnel_arrow.png" type="Texture" id=5]
+[ext_resource path="res://mods-unpacked/Ategon-MolemanMod/art/moleman_tunnel_arrow.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11, 11 )

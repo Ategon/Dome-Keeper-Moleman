@@ -1,7 +1,7 @@
 {
 	"name": "MolemanMod",
 	"namespace": "Ategon",
-	"version_number": "2.0.0",
+	"version_number": "0.2.1",
 	"description": "Adds a new keeper to the game, the Moleman",
 	"website_url": "https://github.com/Ategon/",
 	"dependencies": [],

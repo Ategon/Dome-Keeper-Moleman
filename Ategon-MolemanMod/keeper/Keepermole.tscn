@@ -1,7 +1,7 @@
 [gd_scene load_steps=100 format=2]
 
 [ext_resource path="res://mods-unpacked/Ategon-MolemanMod/keeper/Keepermole.gd" type="Script" id=1]
-[ext_resource path="res://mods-unpacked/Ategon-MolemanMod/art/moleman_sheet.png" type="Texture" id=2]
+[ext_resource path="res://mods-unpacked/Ategon-MolemanMod/art/moleman_moleman_sheet.png" type="Texture" id=2]
 [ext_resource path="res://content/sounds/keeper1/jetpacktest_2.wav" type="AudioStream" id=3]
 [ext_resource path="res://content/keeper/keeper1/player1/booster.png" type="Texture" id=4]
 [ext_resource path="res://content/keeper/spark_gradient.tres" type="Texture" id=5]

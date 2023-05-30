@@ -6,7 +6,7 @@ func init(id:String, unlockable:bool = true, isPet: = false, isSkin: = false):
 		return
 	
 	self.id = id
-	find_node("IconRect").texture = load("res://mods-unpacked/Ategon-MolemanMod/icons/loadout_" + id + ".png")
+	find_node("IconRect").texture = load("res://mods-unpacked/Ategon-MolemanMod/icons/moleman_loadout_" + id + ".png")
 	titleText = tr("upgrades." + id + ".title")
 	find_node("TitleLabel").text = titleText
 	

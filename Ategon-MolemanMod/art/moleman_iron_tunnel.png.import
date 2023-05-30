@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/water_tunnel.png-00f07bfc184a1892aa13d8aedf454e5f.stex"
+path="res://.import/moleman_iron_tunnel.png-de338bf5648852a12cb84b064b861ddb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mods-unpacked/Ategon-MolemanMod/art/water_tunnel.png"
-dest_files=[ "res://.import/water_tunnel.png-00f07bfc184a1892aa13d8aedf454e5f.stex" ]
+source_file="res://mods-unpacked/Ategon-MolemanMod/art/moleman_iron_tunnel.png"
+dest_files=[ "res://.import/moleman_iron_tunnel.png-de338bf5648852a12cb84b064b861ddb.stex" ]
 
 [params]
 

@@ -15,8 +15,11 @@ func _ready():
 		var currentKey
 		var currentData
 		var propertyChanges
-		while not f.eof_reached():
+		print("opened")
+		while f.get_position() < f.get_len():
+			print("aaa")
 			var line:String = f.get_line()
+			print(line)
 			if line.strip_edges().length() > 1:
 
 				if line.begins_with(" "):
@@ -64,6 +67,9 @@ func _ready():
 		Logger.error("failed to open upgrades2.yaml. Error: " + str(err))
 		get_tree().quit()
 	f.close()
+	
+	print(gadgets)
+	print(gadgets_mole)
 	
 	for gk in gadgets_mole:
 		gadgets_mole[gk]["id"] = gk
