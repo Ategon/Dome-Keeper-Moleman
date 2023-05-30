@@ -26,6 +26,7 @@ If the game window shows (modded) when you boot up the game that means it worked
 4. Paste the entire zip file **DO NOT EXTRACT IT** into the mods folder you created in step 2
 
 Now boot up the game and the moleman should show up as an option when you go to select a keeper
+
 Enjoy! :)
 
 # Things left to be added
