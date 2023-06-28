@@ -13,7 +13,7 @@ func _init(modLoader: ModLoader):
 					_install_extensions(modLoader)
 			file_name = dir.get_next()
 	
-	modLoader.add_translation_from_resource("res://mods-unpacked/Ategon-MolemanMod/translations/moleman.en.translation")
+	ModLoaderMod.add_translation("res://mods-unpacked/Ategon-MolemanMod/translations/moleman.en.translation")
 
 func _install_extensions(modLoader):
 	var dir_name = "res://mods-unpacked/" + MOD_DIR + "extensions/"
@@ -25,5 +25,5 @@ func _install_extensions(modLoader):
 		
 		while file_name != "":
 			if not dir.current_is_dir():
-				modLoader.install_script_extension("%s%s" % [dir_name, file_name])
+				ModLoaderMod.install_script_extension("%s%s" % [dir_name, file_name])
 			file_name = dir.get_next()

@@ -29,9 +29,9 @@ upgrades.keepermolecarrystrength4.title,Carry strength 4
 upgrades.keepermolecarrystrength4.desc,Increases your carrying strength.
 upgrades.keepermolequeuedtunnelers.title,Queued tunnelers
 upgrades.keepermolequeuedtunnelers.desc,While a tunneler is digging you can fire another tunneler to continue from where it finishes.
-upgrades.keepermolequeuedsplittunnelers.title,Recursive tunnelers
+upgrades.keepermolequeuedsplittunnelers.title,Split tunnelers
 upgrades.keepermolequeuedsplittunnelers.desc,The queued tunnelers will split and shoot off to the sides of the first tunnel.
-upgrades.keepermolequeuedsplittunnelerssquared.title,Second queued tunnelers
+upgrades.keepermolequeuedsplittunnelerssquared.title,Recursive Tunnelers
 upgrades.keepermolequeuedsplittunnelerssquared.desc,"Queue even more tunnelers after the initial split.
 
 They will be half the length of the first split."
@@ -63,3 +63,4 @@ properties.keepermole.tunnelmaxlength,Max tunnel length {}
 properties.keepermole.tunnelkeepertravelspeed,Tunnel move speed {}
 properties.keepermole.tunnelkeepertraveldamage,Tunnel move damage {}
 properties.keepermole.tunnelkeepertraveldamagereduction,Reduce tunnel move damage by {.percent}
+level.gameover.prestige.uploading.mod,Score upload disabled due to playing modded

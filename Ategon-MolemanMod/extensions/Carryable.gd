@@ -17,7 +17,7 @@ func _ready():
 		if name.find(type) != -1:
 			loaded = true
 			default_sprite = $Sprite.texture
-			tunnel_sprite = load("res://mods-unpacked/Ategon-MolemanMod/art/%s_tunnel.png" % [type_map[type]])
+			tunnel_sprite = load("res://mods-unpacked/Ategon-MolemanMod/art/moleman_%s_tunnel.png" % [type_map[type]])
 			break
 
 func set_tunnel_mode(state):

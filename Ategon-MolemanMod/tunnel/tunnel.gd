@@ -211,15 +211,37 @@ func allowObjectToVacuum(carryable):
 
 	return false
 
-func reverseVacuumDirection(propagate = true):
+func reverseVacuumDirection(propagate = true, dist = Vector2.ZERO):
+	var tileCoord = Level.map.getTileCoord(global_position)
+	var dir = tunnelDir()
+	
+	if dist.x > 0.1:
+		dist.x = 1
+	elif dist.x < -0.1:
+		dist.x = -1
+	else:
+		dist.x = 0
+
+	if dist.y > 0.1:
+		dist.y = 1
+	elif dist.y < -0.1:
+		dist.y = -1
+	else:
+		dist.y = 0
+	
 	vacuumMode = !vacuumMode
+	
+	print(str(dist.x) + " " + str(dir.x) + " " + str(dist.y) + " " + str(dir.y))
 
 	if vacuumMode:
-		vacuumReverse = !vacuumReverse
+		if dist.x == dir.x || dist.y == dir.y:
+			vacuumReverse = true
+		else:
+			vacuumReverse = false
 
 		for data in travellers:
 			if not data["keeper"]:
-				data["reverse"] = !data["reverse"]
+				data["reverse"] = vacuumReverse
 	
 	if vacuumMode:
 		$LeftEntrance/LeftArrow.visible = true
@@ -237,8 +259,7 @@ func reverseVacuumDirection(propagate = true):
 	if not propagate:
 		return
 
-	var tileCoord = Level.map.getTileCoord(global_position)
-	var dir = tunnelDir()
+	
 
 	for i in range(1, MAX_TUNNEL_LENGTH_CHECK):
 		var tunnelTile = Level.map.getTile(tileCoord + (dir * i))
@@ -246,7 +267,7 @@ func reverseVacuumDirection(propagate = true):
 		if not is_instance_valid(tunnelTile) or not tunnelTile.has_meta("tunnel"):
 			break
 
-		tunnelTile.get_meta("tunnel").reverseVacuumDirection(false)
+		tunnelTile.get_meta("tunnel").reverseVacuumDirection(false, dist)
 
 	for i in range(1, MAX_TUNNEL_LENGTH_CHECK):
 
@@ -255,7 +276,7 @@ func reverseVacuumDirection(propagate = true):
 		if not is_instance_valid(tunnelTile) or not tunnelTile.has_meta("tunnel"):
 			break
 
-		tunnelTile.get_meta("tunnel").reverseVacuumDirection(false)
+		tunnelTile.get_meta("tunnel").reverseVacuumDirection(false, dist)
 
 func detonate(delay = 0, propagate = true):
 	if isDetonating:

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/MOLEMAN Carbic Respite.ogg-94fa7f0ce411ece16458804b0
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0

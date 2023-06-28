@@ -59,6 +59,8 @@ func _ready():
 		Data._ready()
 
 	self.addTranslations()
+	
+	Level.addTutorial(self, "moleman_intro")
 
 func setSkin(skinId:String):
 	pass
@@ -91,6 +93,13 @@ func propertyChanged(property:String, oldValue, newValue):
 func _physics_process(delta):
 	
 	$Light.visible = position.y > 0
+	
+	for t in carryLines:
+		var line = carryLines[t]
+		line.set_point_position(0, global_position)
+		line.set_point_position(1, t.global_position)
+	
+	updateCarry()
 	
 	if Data.of("keeper.insidestation") or GameWorld.paused or disabled or inTunnel:
 		$MoveSound.stop()
@@ -150,7 +159,7 @@ func _physics_process(delta):
 	else:
 		hasChangedVacuum = false
 	
-	updateCarry()
+	
 	
 	if $CarryLoadSound.playing:
 		$CarryLoadSound.volume_db = min( - 2, - 30 + carrySlowdown * 50)
@@ -211,10 +220,7 @@ func _physics_process(delta):
 					moveStartSoundPlayBuffer = 0
 			
 	
-	for t in carryLines:
-		var line = carryLines[t]
-		line.set_point_position(0, global_position)
-		line.set_point_position(1, t.global_position)
+	
 	
 	
 	
@@ -281,7 +287,7 @@ func attachCarry(body):
 	body.setCarriedBy(self)
 	$Pickup.play()
 	
-	var carryLine = preload("res://content/keeper/Carryline.tscn").instance()
+	var carryLine = preload("res://mods-unpacked/Ategon-MolemanMod/keeper/Carryline.tscn").instance()
 	carryLine.add_point(position)
 	carryLine.add_point(body.position)
 	get_parent().add_child(carryLine)
@@ -365,10 +371,13 @@ func setTunnelTargetMarker(id: int, startPos: Vector2, dir: Vector2, distance: i
 		Level.map.addTileOverlay(tunnelMarker)
 
 		tunnelMarkerInstances.append(tunnelMarker)
-
+	
+	if !tunnelMarkerInstances[id].visible:
+		tunnelMarkerInstances[id].sprite.frame = 0
 
 	tunnelMarkerInstances[id].show()
 	tunnelMarkerInstances[id].position = targetPos
+	
 
 func updateTunnelerTargets(delta):
 
@@ -459,8 +468,9 @@ func setTunnelMode(isInTunnel):
 
 	if inTunnel:
 		if carriedCarryables.size() > 0:
-			for _i in range(0, carriedCarryables.size()):
-				dropCarry(carriedCarryables.front())
+			pass
+			#for _i in range(0, carriedCarryables.size()):
+			#	dropCarry(carriedCarryables.front())
 	else:
 		tunnelLeaveAnimTimer = 0.155
 
@@ -673,15 +683,17 @@ func touchTunnelTile()->void:
 			if isChangingVacuum and Data.ofOr("keepermole.tunnelVacuum", false):
 				if not hasChangedVacuum:
 					hasChangedVacuum = true
-					tunnel.reverseVacuumDirection()
+					print(global_position)
+					print(tile.global_position)
+					tunnel.reverseVacuumDirection(true, global_position - tile.global_position)
 			else:
 				lastTile = null
 				isTunneling = false
 				hasUpdatedTunnelMarkers = false
 
 				# Only allow tunnel entry if not carrying anything
-				if carriedCarryables.size() == 0:
-					tunnel.enterTunnel(self)
+				# if carriedCarryables.size() == 0: (disabled for new behaviour)
+				tunnel.enterTunnel(self)
 
 			return
 

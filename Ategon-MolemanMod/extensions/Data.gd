@@ -3,7 +3,10 @@ extends "res://systems/data/Data.gd"
 var upgrades_mole = {}
 var gadgets_mole = {}
 
+export var test = "aaa"
+
 func keeperScene(keeperId:String):
+	print("test")
 	if keeperId == "keepermole":
 		return load("res://mods-unpacked/Ategon-MolemanMod/keeper/" + .startCaptialized(keeperId) + ".tscn")
 	return .keeperScene(keeperId)
@@ -15,11 +18,8 @@ func _ready():
 		var currentKey
 		var currentData
 		var propertyChanges
-		print("opened")
 		while f.get_position() < f.get_len():
-			print("aaa")
 			var line:String = f.get_line()
-			print(line)
 			if line.strip_edges().length() > 1:
 
 				if line.begins_with(" "):
@@ -132,12 +132,20 @@ func _ready():
 	gadgets.merge(gadgets_mole)
 	upgrades.merge(upgrades_mole)
 
+
 func storeUpgradeDataMole(key:String, currentData:Dictionary):
 	if currentData.has("predecessors"):
 		upgrades_mole[key] = currentData
-		orderedUpgradeKeys.append(key)
+		insertOrderedKey(key)
 	elif currentData.has("rating"):
 		worldModifiers[key] = currentData
 	else :
 		gadgets_mole[key] = currentData
+		insertOrderedKey(key)
+
+
+func insertOrderedKey(key):
+	if "keeper" in key:
+		orderedUpgradeKeys.insert(orderedUpgradeKeys.find("keeper1"), key)
+	else:
 		orderedUpgradeKeys.append(key)
