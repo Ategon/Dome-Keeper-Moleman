@@ -40,7 +40,7 @@ upgrades.keepermolemineralextraction.desc,While digging a tunnel through resourc
 upgrades.keepermoletunnelvacuum.title,Tunnel vacuum
 upgrades.keepermoletunnelvacuum.desc,"Tunnels will hoover up resources close to them.
 
-Press and hold the drop button before touching a tunnel to reverse vacuum direction."
+Press and hold the drop button before touching a tunnel to add a vacuum."
 upgrades.keepermoletunnelreducedfriction.title,Reduced friction
 upgrades.keepermoletunnelreducedfriction.desc,"You do less damage to tunnels you use infrequently.
 

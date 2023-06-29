@@ -206,10 +206,8 @@ func continueTunneling(traveller, fromCoord, prevData):
 	travellers.append(travellerData)
 
 func allowObjectToVacuum(carryable):
-	if carryable.carryableType == "resource" and (carryable.type == "iron" or carryable.type == "water" or carryable.type == "sand"):
-		return true
+	return true
 
-	return false
 
 func reverseVacuumDirection(propagate = true, dist = Vector2.ZERO):
 	var tileCoord = Level.map.getTileCoord(global_position)
@@ -381,7 +379,11 @@ func _physics_process(delta):
 			var diffVec = (entrancePosition - carryObj.global_position)
 
 			var sprite = carryObj.find_node("Sprite")
-			var size = (max(sprite.get_rect().size.x, sprite.get_rect().size.y)*0.85) + vacuumPatience[id]
+			var size
+			if sprite is AnimatedSprite:
+				size = (max(sprite.scale.x, sprite.scale.y)*0.85) + vacuumPatience[id]
+			else:
+				size = (max(sprite.get_rect().size.x, sprite.get_rect().size.y)*0.85) + vacuumPatience[id]
 
 			vacuumPatience[id] += Data.of("keepermole.tunnelVacuumPatienceLossPerSec") * delta
 
